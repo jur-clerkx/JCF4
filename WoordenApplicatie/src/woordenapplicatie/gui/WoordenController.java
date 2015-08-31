@@ -9,7 +9,14 @@ package woordenapplicatie.gui;
 
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,12 +70,38 @@ public class WoordenController implements Initializable {
     
     @FXML
     private void aantalAction(ActionEvent event) {
-         throw new UnsupportedOperationException("Not supported yet."); 
+         /**Split all items into array, request array size because its allready there
+          * Then add all items into hashset, as it is fast and removes all the double words, then request size of that
+          */
+        String input = taInput.getText().toLowerCase();
+        String[] words = input.trim().split(",\\s|\\s|,|\\.|\n");
+        Set set = new HashSet(Arrays.asList(words));
+        
+        //Display results
+        taOutput.setText("Aantal woorden: " + words.length + "\n" +
+                "Aantal verschillende: " + set.size());
     }
 
     @FXML
     private void sorteerAction(ActionEvent event) {
-         throw new UnsupportedOperationException("Not supported yet."); 
+        /**Split all items into array, request array size because its allready there
+          * Then add all items into hashset, as it is fast and removes all the double words
+          * Add collection to a list, sort and print output
+          */
+        String input = taInput.getText().toLowerCase();
+        String[] words = input.trim().split(",\\s|\\s|,|\\.|\n");
+        Set set = new HashSet(Arrays.asList(words));
+        
+        List<String> list = new ArrayList(set);
+        Collections.sort(list);
+        Collections.reverse(list);
+        
+        String result = "";
+        for (String s : list) {
+            result += s + "\n";
+        }
+        
+        taOutput.setText(result);
     }
 
     @FXML
