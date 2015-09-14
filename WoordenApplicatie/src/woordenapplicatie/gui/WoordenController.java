@@ -153,25 +153,25 @@ public class WoordenController implements Initializable {
          * line numbers in a hashset
          */
         String input = taInput.getText().toLowerCase();
-        input = input.replaceAll("\n", " !! ");
-        String[] words = input.trim().split("[\\s.,\n]+");
+        input = input.replaceAll("\n", " !! "); //n
+        String[] words = input.trim().split("[\\s.,\n]+"); //n
 
         Map map = new HashMap<String, HashSet<Integer>>();
         int linenumber = 1;
-        for (String s : words) {
+        for (String s : words) {//n
             if (s.equals("!!")) {
                 linenumber++;
             } else {
-                if (map.containsKey(s)) {
-                    HashSet lines = (HashSet<Integer>) map.get(s);
-                    lines.add(linenumber);
+                if (map.containsKey(s)) {//1
+                    HashSet lines = (HashSet<Integer>) map.get(s);//1
+                    lines.add(linenumber);//1
                 } else {
-                    HashSet lines = new HashSet<Integer>();
-                    lines.add(linenumber);
-                    map.put(s, lines);
+                    HashSet lines = new HashSet<Integer>();//1
+                    lines.add(linenumber);//1
+                    map.put(s, lines);//1
                 }
             }
-        }
+        }//2n + n*(1)
 
         String result = "";
         for (Object e : map.entrySet()) {
