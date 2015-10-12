@@ -30,7 +30,7 @@ public class Huffman {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String input = "Dit_is_een_test_text";
+        String input = "Bananen";
 
         //Telt hoe vaak elke letter voor komt. En maakt er een boom van.
         getLetterFrequencies(input);
@@ -116,7 +116,7 @@ public class Huffman {
 
     //Geeft elke letter in de text een unieke code
     private static void createCodes(HuffmanKnoop root, String vorigeCode) {
-        char start = 0;
+        char start = '\0';
         if (root.letter == start) {
             createCodes(root.rightChild, vorigeCode.concat("1"));
             createCodes(root.leftChild, vorigeCode.concat("0"));
@@ -149,16 +149,7 @@ public class Huffman {
         //Sorteert op frequentie
         PriorityQueue queue = new PriorityQueue<>();
         queue.addAll(nodes);
-        PriorityQueue<HuffmanKnoop> sortedQ = new PriorityQueue<>();
-        sortedQ = sortPriorityQueue(queue);
-        createHuffmanTree(sortedQ);
-    }
-
-    //Sorteert queue
-    public static PriorityQueue<HuffmanKnoop> sortPriorityQueue(PriorityQueue<HuffmanKnoop> huffQ) {
-        PriorityQueue<HuffmanKnoop> sortedQueue = new PriorityQueue<>();
-        sortedQueue.addAll(huffQ);
-        return sortedQueue;
+        createHuffmanTree(queue);
     }
 
     //Maakt HuffmanTree
