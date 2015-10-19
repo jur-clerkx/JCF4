@@ -25,10 +25,6 @@ public class GreaterTypes {
         observableSubtypes = FXCollections.observableArrayList();
     }
 
-    public String getTypeName() {
-        return GTypename;
-    }
-
     public ObservableList<Subtype> getSubtypes() {
         return observableSubtypes;
     }
@@ -40,5 +36,11 @@ public class GreaterTypes {
     public int getSize()
     {
         return subtypes.size();
+    }
+    
+    @Override
+    public String toString()
+    {
+        return GTypename;
     }
 }

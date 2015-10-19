@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -23,7 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+
+
 
 /**
  * FXML Controller class
@@ -86,7 +86,10 @@ public class GuiController implements Initializable {
     @FXML
     public void updateTableView() {
         TreeItem<GreaterTypes> selectedGType = (TreeItem<GreaterTypes>) TreeViewTypes.getSelectionModel().getSelectedItem();
-        TableViewTypes.setItems((ObservableList) selectedGType.getValue().getSubtypes());
+        if(selectedGType != null)
+        {
+            TableViewTypes.setItems((ObservableList) selectedGType.getValue().getSubtypes());
+        }
     }
 
     @FXML
