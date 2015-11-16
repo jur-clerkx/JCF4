@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AuctionController">
+   <children>
+      <Label layoutX="76.0" layoutY="222.0" text="Highest BidderID:" />
+      <Label layoutX="76.0" layoutY="247.0" text="Highest Bid Amount:" />
+      <Label fx:id="lblBidAmount" layoutX="316.0" layoutY="247.0" text="\$0" />
+      <Label fx:id="lblUserID" layoutX="316.0" layoutY="222.0" text="User" />
+      <Label layoutX="76.0" layoutY="296.0" text="Bid amount:" />
+      <TextField fx:id="txtBidAmountNew" layoutX="316.0" layoutY="292.0" />
+      <Button fx:id="btnBid" layoutX="76.0" layoutY="337.0" mnemonicParsing="false" text="Bid" />
+      <Label layoutX="76.0" layoutY="36.0" text="AuctionID:" />
+      <Label layoutX="76.0" layoutY="60.0" text="Auction Description:" />
+      <Label fx:id="lblAuctionID" layoutX="316.0" layoutY="36.0" text="00001" />
+      <Label fx:id="lblAutionDescription" layoutX="76.0" layoutY="85.0" prefHeight="131.0" prefWidth="292.0" text="testjhjkkajshdkjshakdjhaksjdhkajshdkajdkashdkajhdjkas" />
+      <Button fx:id="btnNext" layoutX="498.0" layoutY="337.0" mnemonicParsing="false" text="Next Auction" />
+   </children>
+</AnchorPane>
